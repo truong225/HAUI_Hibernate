@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Login</title>
+	<!-- Latest compiled and minified CSS & JS -->
+	<link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+	<script src="../../js/jquery.js"></script>
+	<script src="../../bootstrap/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="../../css/web.css">
+	<script src="../../js/myjs.js"></script>
+	
+</head>
+<body>
+<div class="container-fluid">
+		
+		<div class="container">
+		<div class="row">
+			<div class="col-xs-4 col-sm-4 col-md-4 col-md-push-4 col-sm-push-3 ">
+				<section>
+					<form action="Login" >
+						<h1>Login</h1>
+						
+						<div class="login_content">
+							<input type="text" name="username" id="inputUsername" class="form-control" value="" required="required" pattern="" title="" placeholder="Username">
+						</div>
+						<div class="login_content">
+							<input type="password" name="password" id="inputPass" class="form-control" required="required" title="" placeholder="Password">
+						</div>
+						
+						
+						<div >
+							<div class="alert alert-danger" id="alert"  style="display: none;">
+								<button type="button" class="close" data-dismiss="alert" aria-hidden="true"   >&times;</button>
+								Sai tên tài khoản hoặc mật khẩu!
+							</div>
+						</div>
+
+						<div class="login_content">
+							<button type="button" class="btn btn-default" onclick="checkPass()">Login</button>
+							<a href="#">Lost your password?</a>
+						</div>
+						<p id="demo"></p>
+
+					</form>
+					<hr>
+				</section> 
+			</div>
+		</div>
+	</div>
+</div>
+
+	
+</body>
+</html>
