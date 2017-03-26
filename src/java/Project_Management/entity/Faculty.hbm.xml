@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 26, 2017 4:27:51 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Project_Management.entity.Faculty" table="faculty" catalog="project_management" optimistic-lock="version">
+        <id name="facultyId" type="java.lang.Integer">
+            <column name="faculty_id" />
+            <generator class="identity" />
+        </id>
+        <property name="facultyEnable" type="boolean">
+            <column name="faculty_enable" not-null="true" />
+        </property>
+        <property name="facultyDean" type="string">
+            <column name="faculty_dean" length="30" not-null="true" />
+        </property>
+        <property name="facultyViceDean" type="string">
+            <column name="faculty_vice_dean" length="30" not-null="true" />
+        </property>
+        <property name="facultyMajor" type="string">
+            <column name="faculty_major" length="30" not-null="true" />
+        </property>
+        <property name="facultyLecturerCount" type="int">
+            <column name="faculty_lecturer_count" not-null="true" />
+        </property>
+        <property name="facultyStudentCount" type="int">
+            <column name="faculty_student_count" not-null="true" />
+        </property>
+        <property name="facultyClassCount" type="int">
+            <column name="faculty_class_count" not-null="true" />
+        </property>
+        <property name="facultySubjectList" type="string">
+            <column name="faculty_subject_list" length="200" not-null="true" />
+        </property>
+        <property name="facultyPersonnelManager" type="string">
+            <column name="faculty_personnel_manager" length="50" not-null="true" />
+        </property>
+        <set name="classeses" table="classes" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="classes_faculty_id" not-null="true" />
+            </key>
+            <one-to-many class="Project_Management.entity.Classes" />
+        </set>
+        <set name="users" table="user" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_faculty_id" not-null="true" />
+            </key>
+            <one-to-many class="Project_Management.entity.User" />
+        </set>
+    </class>
+</hibernate-mapping>

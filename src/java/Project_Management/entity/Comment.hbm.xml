@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 26, 2017 4:27:51 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Project_Management.entity.Comment" table="comment" catalog="project_management" optimistic-lock="version">
+        <id name="commentId" type="java.lang.Integer">
+            <column name="comment_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="project" class="Project_Management.entity.Project" fetch="select">
+            <column name="comment_project_contain_id" />
+        </many-to-one>
+        <many-to-one name="user" class="Project_Management.entity.User" fetch="select">
+            <column name="comment_poster_id" not-null="true" />
+        </many-to-one>
+        <property name="commentContent" type="string">
+            <column name="comment_content" length="65535" not-null="true" />
+        </property>
+        <property name="commentPostDate" type="timestamp">
+            <column name="comment_post_date" length="19" />
+        </property>
+        <property name="commentEnable" type="boolean">
+            <column name="comment_enable" not-null="true" />
+        </property>
+        <property name="commentLastModifed" type="timestamp">
+            <column name="comment_last_modifed" length="19" />
+        </property>
+        <property name="commentLastEditor" type="string">
+            <column name="comment_last_editor" length="30" />
+        </property>
+        <property name="commentIsRead" type="java.lang.Boolean">
+            <column name="comment_is_read" />
+        </property>
+        <property name="commentFont" type="string">
+            <column name="comment_font" length="30" />
+        </property>
+        <property name="commentLanguage" type="string">
+            <column name="comment_language" length="30" />
+        </property>
+    </class>
+</hibernate-mapping>

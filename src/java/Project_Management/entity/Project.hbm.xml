@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 26, 2017 4:27:51 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Project_Management.entity.Project" table="project" catalog="project_management" optimistic-lock="version">
+        <id name="projectId" type="java.lang.Integer">
+            <column name="project_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="userByProjectAuthorId" class="Project_Management.entity.User" fetch="select">
+            <column name="project_author_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="userByProjectInstructorId" class="Project_Management.entity.User" fetch="select">
+            <column name="project_instructor_id" not-null="true" />
+        </many-to-one>
+        <property name="projectName" type="string">
+            <column name="project_name" length="30" not-null="true" />
+        </property>
+        <property name="projectValuationPoint" type="java.lang.Float">
+            <column name="project_valuation_point" precision="5" />
+        </property>
+        <property name="projectAppraisal" type="string">
+            <column name="project_appraisal" length="65535" />
+        </property>
+        <property name="projectEnable" type="boolean">
+            <column name="project_enable" not-null="true" />
+        </property>
+        <property name="projectStartDate" type="timestamp">
+            <column name="project_start_date" length="19" />
+        </property>
+        <property name="projectPostDate" type="timestamp">
+            <column name="project_post_date" length="19" />
+        </property>
+        <property name="projectBrief" type="string">
+            <column name="project_brief" length="65535" />
+        </property>
+        <property name="projectViewCount" type="java.lang.Integer">
+            <column name="project_view_count" />
+        </property>
+        <property name="projectDownloadCount" type="java.lang.Integer">
+            <column name="project_download_count" />
+        </property>
+        <property name="projectFont" type="string">
+            <column name="project_font" length="20" />
+        </property>
+        <property name="projectLanguage" type="string">
+            <column name="project_language" length="20" />
+        </property>
+        <property name="projectSize" type="java.lang.Float">
+            <column name="project_size" precision="10" />
+        </property>
+        <property name="projectPageCount" type="java.lang.Integer">
+            <column name="project_page_count" />
+        </property>
+        <property name="projectChapterCount" type="java.lang.Integer">
+            <column name="project_chapter_count" />
+        </property>
+        <property name="projectLastModified" type="timestamp">
+            <column name="project_last_modified" length="19" />
+        </property>
+        <property name="projectValuationCouncil" type="string">
+            <column name="project_valuation_council" length="65535" />
+        </property>
+        <property name="projectReviewerCouncil" type="string">
+            <column name="project_reviewer_council" length="65535" />
+        </property>
+        <property name="projectNote" type="string">
+            <column name="project_note" length="65535" />
+        </property>
+        <property name="projectKeywork" type="string">
+            <column name="project_keywork" length="100" />
+        </property>
+        <property name="projectTheme" type="string">
+            <column name="project_theme" length="100" />
+        </property>
+        <property name="projectTask" type="string">
+            <column name="project_task" length="65535" />
+        </property>
+        <set name="comments" table="comment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="comment_project_contain_id" />
+            </key>
+            <one-to-many class="Project_Management.entity.Comment" />
+        </set>
+    </class>
+</hibernate-mapping>

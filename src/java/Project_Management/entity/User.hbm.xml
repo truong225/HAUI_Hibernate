@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 26, 2017 4:27:51 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Project_Management.entity.User" table="user" catalog="project_management" optimistic-lock="version">
+        <id name="userId" type="java.lang.Integer">
+            <column name="user_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="faculty" class="Project_Management.entity.Faculty" fetch="select">
+            <column name="user_faculty_id" not-null="true" />
+        </many-to-one>
+        <property name="userName" type="string">
+            <column name="user_name" length="50" not-null="true" />
+        </property>
+        <property name="userDateOfBirth" type="timestamp">
+            <column name="user_date_of_birth" length="19" not-null="true" />
+        </property>
+        <property name="userGender" type="string">
+            <column name="user_gender" length="10" not-null="true" />
+        </property>
+        <property name="userIdentificationNumber" type="string">
+            <column name="user_identification_number" length="12" not-null="true" />
+        </property>
+        <property name="userLanguage" type="string">
+            <column name="user_language" length="15" not-null="true" />
+        </property>
+        <property name="userSalary" type="java.lang.Integer">
+            <column name="user_salary" />
+        </property>
+        <property name="userAddress" type="string">
+            <column name="user_address" length="100" />
+        </property>
+        <property name="userHometown" type="string">
+            <column name="user_hometown" length="20" />
+        </property>
+        <property name="userMobileNumber" type="string">
+            <column name="user_mobile_number" length="12" />
+        </property>
+        <property name="userPhoneNumber" type="string">
+            <column name="user_phone_number" length="12" />
+        </property>
+        <property name="userReligion" type="string">
+            <column name="user_religion" length="15" />
+        </property>
+        <property name="userEthnic" type="string">
+            <column name="user_ethnic" length="15" />
+        </property>
+        <property name="userAccountCreateDate" type="timestamp">
+            <column name="user_account_create_date" length="19" not-null="true" />
+        </property>
+        <property name="userLastLogin" type="timestamp">
+            <column name="user_last_login" length="19" />
+        </property>
+        <property name="userLastModified" type="timestamp">
+            <column name="user_last_modified" length="19" />
+        </property>
+        <property name="userAlias" type="string">
+            <column name="user_alias" length="20" not-null="true" />
+        </property>
+        <property name="userPassword" type="string">
+            <column name="user_password" length="20" not-null="true" />
+        </property>
+        <property name="userAvatar" type="string">
+            <column name="user_avatar" length="100" not-null="true" />
+        </property>
+        <property name="userEnable" type="boolean">
+            <column name="user_enable" not-null="true" />
+        </property>
+        <property name="userActive" type="boolean">
+            <column name="user_active" not-null="true" />
+        </property>
+        <property name="userFacebook" type="string">
+            <column name="user_facebook" length="100" />
+        </property>
+        <property name="userEmail" type="string">
+            <column name="user_email" length="100" />
+        </property>
+        <property name="userDuty" type="string">
+            <column name="user_duty" length="30" not-null="true" />
+        </property>
+        <property name="userAuthority" type="string">
+            <column name="user_authority" length="100" not-null="true" />
+        </property>
+        <property name="userSelfDescribe" type="string">
+            <column name="user_self_describe" length="100" />
+        </property>
+        <property name="userDiploma" type="string">
+            <column name="user_diploma" length="50" />
+        </property>
+        <property name="userDegree" type="string">
+            <column name="user_degree" length="50" />
+        </property>
+        <property name="userMarriageStatus" type="string">
+            <column name="user_marriage_status" length="15" />
+        </property>
+        <property name="userManagerParentId" type="java.lang.Integer">
+            <column name="user_manager_parent_id" />
+        </property>
+        <set name="comments" table="comment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="comment_poster_id" not-null="true" />
+            </key>
+            <one-to-many class="Project_Management.entity.Comment" />
+        </set>
+        <set name="projectsForProjectAuthorId" table="project" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="project_author_id" not-null="true" />
+            </key>
+            <one-to-many class="Project_Management.entity.Project" />
+        </set>
+        <set name="projectsForProjectInstructorId" table="project" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="project_instructor_id" not-null="true" />
+            </key>
+            <one-to-many class="Project_Management.entity.Project" />
+        </set>
+        <one-to-one name="student" class="Project_Management.entity.Student"></one-to-one>
+    </class>
+</hibernate-mapping>

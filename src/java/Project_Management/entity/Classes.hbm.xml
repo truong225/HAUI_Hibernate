@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 26, 2017 4:27:51 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Project_Management.entity.Classes" table="classes" catalog="project_management" optimistic-lock="version">
+        <id name="classesId" type="java.lang.Integer">
+            <column name="classes_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="faculty" class="Project_Management.entity.Faculty" fetch="select">
+            <column name="classes_faculty_id" not-null="true" />
+        </many-to-one>
+        <property name="classesEnable" type="boolean">
+            <column name="classes_enable" not-null="true" />
+        </property>
+        <property name="classesName" type="string">
+            <column name="classes_name" length="10" not-null="true" />
+        </property>
+        <property name="classesStudentCount" type="int">
+            <column name="classes_student_count" not-null="true" />
+        </property>
+        <property name="classesRepresentative" type="string">
+            <column name="classes_representative" length="30" not-null="true" />
+        </property>
+        <property name="classesViceRepresentative" type="string">
+            <column name="classes_vice_representative" length="30" not-null="true" />
+        </property>
+        <property name="classesHeadTeacher" type="string">
+            <column name="classes_head_teacher" length="30" not-null="true" />
+        </property>
+        <property name="classesAcademicYear" type="int">
+            <column name="classes_academic_year" not-null="true" />
+        </property>
+        <set name="students" table="student" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="student_class_id" not-null="true" />
+            </key>
+            <one-to-many class="Project_Management.entity.Student" />
+        </set>
+    </class>
+</hibernate-mapping>
