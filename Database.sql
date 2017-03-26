@@ -21,20 +21,20 @@ create table if not exists project_management.faculty (
     primary key(faculty_id)
 );
 
-DROP TABLE IF EXISTS project_management.class;
+DROP TABLE IF EXISTS project_management.classes;
 
-create table if not exists project_management.class (
-	class_id int (10) not null auto_increment,
-    class_enable bool not null,
-    class_name nvarchar(10) not null,
-	class_student_count int(10) not null,
-    class_representative nvarchar(30) not null,
-    class_vice_representative nvarchar(30) not null,
-    class_head_teacher nvarchar(30) not null,
-    class_academic_year int(2) not null,
-    class_faculty_id int(10) not null,
-    foreign key(class_faculty_id) references project_management.faculty(faculty_id) on delete cascade on update cascade,
-    primary key(class_id)
+create table if not exists project_management.classes (
+	classes_id int (10) not null auto_increment,
+    classes_enable bool not null,
+    classes_name nvarchar(10) not null,
+	classes_student_count int(10) not null,
+    classes_representative nvarchar(30) not null,
+    classes_vice_representative nvarchar(30) not null,
+    classes_head_teacher nvarchar(30) not null,
+    classes_academic_year int(2) not null,
+    classes_faculty_id int(10) not null,
+    foreign key(classes_faculty_id) references project_management.faculty(faculty_id) on delete cascade on update cascade,
+    primary key(classes_id)
 );
 
 DROP TABLE IF EXISTS project_management.user ;
@@ -90,7 +90,8 @@ create table if not exists project_management.student (
     student_mother_name nvarchar(30),
     student_mother_phone nvarchar(12),
     foreign key(student_id) references project_management.user(user_id) on delete cascade on update cascade,
-    foreign key(student_class_id) references project_management.class(class_id) on delete cascade on update cascade
+    foreign key(student_class_id) references project_management.classes(classes_id) on delete cascade on update cascade,
+    primary key(student_id)
 );
 
 DROP TABLE IF EXISTS project_management.project ;
