@@ -47,7 +47,7 @@ Contributor(s):
     <property name="hibernate.current_session_context_class">thread</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.password">montecristo</property>
+    <property name="hibernate.connection.password">******</property>
     <mapping resource="Project_Management/entity/User.hbm.xml"/>
     <mapping resource="Project_Management/entity/Student.hbm.xml"/>
     <mapping resource="Project_Management/entity/Faculty.hbm.xml"/>
