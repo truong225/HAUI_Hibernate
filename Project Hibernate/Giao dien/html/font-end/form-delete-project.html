@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Đồ án tốt nghiệp</title>
+    <title> Đồ án tốt nghiệp </title>
 
     <!-- Bootstrap -->
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -15,18 +15,10 @@
     <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
     <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
-    <!-- iCheck -->
-    <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-	
-    <!-- bootstrap-progressbar -->
-    <link href="../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
-    <!-- JQVMap -->
-    <link href="../vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
-    <!-- bootstrap-daterangepicker -->
-    <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
     <link href="../build/css/custom.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/custom.css">
   </head>
 
   <body class="nav-md">
@@ -184,6 +176,7 @@
                         <span class="message">
                           Film festivals used to be do-or-die moments for movie makers. They were where...
                         </span>
+                        zlola
                       </a>
                     </li>
                     <li>
@@ -228,7 +221,108 @@
 
         <!-- page content -->
         <div class="right_col" role="main">
-          Contents
+          <!-- page title -->
+          <div class="page-title">
+              
+
+              <div class="right_col">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                              <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          <!-- end page title -->
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Form Hủy Đề tài </h2>
+                    
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                    <!-- Tabs -->
+                    <div id="wizard_verticle" class="form_wizard wizard_verticle">
+                      <ul class="list-unstyled wizard_steps">
+                        <li>
+                          <a href="#step-11">
+                            <span class="step_no">1</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#step-22">
+                            <span class="step_no">2</span>
+                          </a>
+                        </li>
+                        
+                      </ul>
+
+                      <div id="step-11">
+                        <h2 class="StepTitle">Bước 1: Đăng kí hủy</h2>
+                        <form class="form-horizontal form-label-left">
+
+                          <span class="section">Đề tài</span>
+
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3" for="chondetai">Chọn đề tài hủy <span class="required">*</span></label>
+                              <div class="col-sm-6 col-md-6">
+                                <select class="form-control">
+                                <option value="">-- Chọn đề tài hủy --</option>
+                                <option value="">Quản lý đồ án tốt nghiệp</option>
+                                
+                              </select>
+                              </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3" for="lydo">Lý do hủy đề tài <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6">
+                              <textarea type="form-control" rows="4" required class="form-control col-md-7 col-xs-12"></textarea>
+                            </div>
+                          </div>
+
+                        </form>
+                      </div>
+                      <div id="step-22">
+                        <h2 class="StepTitle">Bước 2: Xét duyệt hủy đề tài</h2>
+                        <table class="table table-hover">
+                          <thead>
+                            <tr>
+                              <th>Tên đề tài</th>
+                              <th>Giảng viên hướng dẫn</th>
+                              <th>Trạng thái xét duyệt</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>Quản lý đồ án tốt nghiệp</td>
+                              <td>Hoàng Quang Huy</td>
+                              <td><i class="fa fa-check"></i></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                     </div>
+                     
+                    </div>
+                    <!-- End SmartWizard Content -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- form register -->
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            
+          </div>
+          <!-- end form register -->
         </div>
         <!-- /page content -->
 
@@ -251,38 +345,11 @@
     <script src="../vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
     <script src="../vendors/nprogress/nprogress.js"></script>
-    <!-- Chart.js -->
-    <script src="../vendors/Chart.js/dist/Chart.min.js"></script>
-    <!-- gauge.js -->
-    <script src="../vendors/gauge.js/dist/gauge.min.js"></script>
-    <!-- bootstrap-progressbar -->
-    <script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-    <!-- iCheck -->
-    <script src="../vendors/iCheck/icheck.min.js"></script>
-    <!-- Skycons -->
-    <script src="../vendors/skycons/skycons.js"></script>
-    <!-- Flot -->
-    <script src="../vendors/Flot/jquery.flot.js"></script>
-    <script src="../vendors/Flot/jquery.flot.pie.js"></script>
-    <script src="../vendors/Flot/jquery.flot.time.js"></script>
-    <script src="../vendors/Flot/jquery.flot.stack.js"></script>
-    <script src="../vendors/Flot/jquery.flot.resize.js"></script>
-    <!-- Flot plugins -->
-    <script src="../vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-    <script src="../vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
-    <script src="../vendors/flot.curvedlines/curvedLines.js"></script>
-    <!-- DateJS -->
-    <script src="../vendors/DateJS/build/date.js"></script>
-    <!-- JQVMap -->
-    <script src="../vendors/jqvmap/dist/jquery.vmap.js"></script>
-    <script src="../vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-    <script src="../vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
-    <!-- bootstrap-daterangepicker -->
-    <script src="../vendors/moment/min/moment.min.js"></script>
-    <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-
+    <!-- jQuery Smart Wizard -->
+    <script src="../vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
+
 	
   </body>
 </html>

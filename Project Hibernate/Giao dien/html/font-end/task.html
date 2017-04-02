@@ -8,7 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Đồ án tốt nghiệp</title>
-
+	
+    <link rel="stylesheet" href="css/jquery-ui.css">
     <!-- Bootstrap -->
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -24,12 +25,59 @@
     <link href="../vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
     <!-- bootstrap-daterangepicker -->
     <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-
+	  
+	  <!-- Datatables -->
+    <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+	  
     <!-- Custom Theme Style -->
     <link href="../build/css/custom.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/custom.css">
+    
+    
+    <style>
+    label, input { display:block; }
+    input.text { margin-bottom:12px; width:95%; padding: .4em; }
+    fieldset { padding:0; border:0; margin-top:25px; }
+    h1 { font-size: 1.2em; margin: .6em 0; }
+    div#users-contain { width: 350px; margin: 20px 0; }
+    div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
+    div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
+    .ui-dialog .ui-state-error { padding: .3em; }
+    .validateTips { border: 1px solid transparent; padding: 0.3em; }
+  </style>
+	
+	  
   </head>
 
   <body class="nav-md">
+  <!-- Form crete Task -->
+   <div id="dialog-form" title="Thêm tiến độ dự án">
+
+	  <form>
+		<fieldset>
+		  <label for="txtName">Tên công việc</label>
+		  <input type="text" name="txtName" id="txtName" value="" class="text ui-widget-content ui-corner-all">
+		  <label for="txtInput">Đầu vào dự kiến</label>
+		  <input type="text" name="txtInput" id="txtInput" value="" class="text ui-widget-content ui-corner-all">
+		  <label for="txtOutput">Kết quả dự kiến</label>
+		  <input type="text" name="txtOutput" id="txtOutput" value="" class="text ui-widget-content ui-corner-all">
+     		<label for="txtTimeDK">Thời gian dự kiến</label>
+     		<input type="text" name="txtTimeDK" id="datepicker"> 
+
+     		<label class="control-label" style="padding-top: 10px">Đính kèm</label>
+			<input id="input-1a" type="file" class="file" data-show-preview="false">
+     		
+      <!-- /create task -->
+
+		  <!-- Allow form submission with keyboard without duplicating the dialog button -->
+		  <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+		</fieldset>
+	  </form>
+	</div>
     <div class="container body">
       <div class="main_container">
         <div class="col-md-3 left_col">
@@ -227,8 +275,48 @@
         <!-- /top navigation -->
 
         <!-- page content -->
+        
         <div class="right_col" role="main">
-          Contents
+         	
+ 			
+		
+          	<div class="page-title">
+				<!--Test-->
+          			
+				<!-- /Test-->
+          		<div class="title_left">
+          			<h3>Tiến độ dự án</h3>
+          		</div>
+          		<div class="title_right">
+          				<button id="create-user" class="btn btn-danger pull-right">Cập nhật tiến độ dư án</button>
+          		</div>
+          	</div>
+          	<div class="clearfix"></div>
+          		
+          	<table id="datatable" class="table table-bordered table-striped" >
+          		<thead>
+          			<th>ID</th>
+          			<th>Tên công việc</th>
+          			<th>Đầu vào dự kiến</th>
+          			<th>Kết quả dự kiến</th>
+          			<th>Thời gian dự kiến</th>
+					<th>Đính kèm báo cáo</th>
+          		</thead>
+          		<tbody>
+          			<tr>
+          				<td>1</td>
+          				<td>Tìm tài liệu làm slide thuyết trình về quy trình quản lý dự án</td>
+          				<td>Tài liệu + keyword từ giảng viên hướng dẫn</td>
+          				<td>Thông tin về quy trình quản lý dự án</td>
+          				<td>20/2/2017</td>
+          				<td><a href="">Đính kèm</a></td>
+          			</tr>
+          			
+          		</tbody>
+          	</table>
+          </div>
+          	</div>
+          	
         </div>
         <!-- /page content -->
 
@@ -241,10 +329,13 @@
         </footer>
         <!-- /footer content -->
       </div>
-    </div>
-
+	</div>
     <!-- jQuery -->
     <script src="../vendors/jquery/dist/jquery.min.js"></script>
+     
+ 	  <script src="js/jquery-1.12.4.js"></script>
+	  <script src="js/jquery-ui.js"></script>
+
     <!-- Bootstrap -->
     <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- FastClick -->
@@ -280,9 +371,27 @@
     <!-- bootstrap-daterangepicker -->
     <script src="../vendors/moment/min/moment.min.js"></script>
     <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-
+    
+	  <!-- Datatables -->
+    <script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="../vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="../vendors/jszip/dist/jszip.min.js"></script>
+    <script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+   
 	
   </body>
 </html>
